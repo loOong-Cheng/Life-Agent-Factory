@@ -4,7 +4,27 @@
 
 Turn the life loop into a repeatable interaction.
 
-## Prompt
+## Input
+
+- core_loop
+- broken_points
+- memory_contract
+- sub_agents
+
+## Output
+
+- user_rituals:
+  - name
+  - trigger
+  - cadence
+  - duration
+  - opening_move
+  - steps
+  - artifact
+  - low_energy_version
+  - success_signal
+
+## Constraints
 
 Design one core ritual for the agent.
 
@@ -21,4 +41,4 @@ Specify:
 - success signal
 
 The ritual should feel natural enough to repeat without ceremony.
-
+Do not propose implementation, code, automations, database schemas, or full agent architecture at this stage.
