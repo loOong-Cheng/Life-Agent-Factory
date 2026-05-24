@@ -1,45 +1,69 @@
 agent_blueprint:
-  name: ""
+  agent_name: ""
   version: "0.1"
+  one_sentence_positioning: ""
   original_desire: ""
   normalized_desire: ""
+  life_goal: ""
   life_area: ""
-  domain_pattern: ""
+  domain_type: ""
+  why_agentize: ""
+  non_goals: []
 
-  target_loop:
+  core_loop:
     name: ""
     trigger: ""
     current_pattern: ""
-    pain_or_opportunity: ""
-    desired_change: ""
-    mvp_scope: ""
+    desired_pattern: ""
+    output: ""
 
-  purpose:
-    primary_job: ""
-    non_goals: []
-    user_voice_notes: []
+  broken_points:
+    - point: ""
+      impact: ""
+
+  user_rituals:
+    - name: ""
+      trigger: ""
+      cadence: ""
+      steps: []
+      artifact: ""
+      low_energy_version: ""
 
   memory_contract:
-    file: "memory_contract.yaml"
-    summary: ""
+    remember: []
+    avoid: []
+    update_rules: []
+    correction_process: ""
 
-  roles:
+  sub_agents:
     - name: ""
       responsibility: ""
       appears_when: ""
       must_not: []
 
-  rituals:
-    - file: "ritual_spec.yaml"
-      name: ""
-
   commands:
-    - file: "command_spec.yaml"
-      name: ""
+    - name: ""
+      purpose: ""
+      input: ""
+      output: ""
+      memory_write: ""
+
+  data_sources: []
+  storage_recommendation: ""
+
+  mvp:
+    scope: ""
+    ritual: ""
+    commands: []
+
+  success_metrics:
+    - ""
+
+  risks_and_limits:
+    - risk: ""
+      limit: ""
+
+  future_extensions: []
 
   review:
-    file: "agent_review.yaml"
-    success_signals: []
-    risks: []
     next_revision_questions: []
-

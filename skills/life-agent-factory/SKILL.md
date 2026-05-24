@@ -4,6 +4,8 @@ Use this skill when a user wants to turn a vague life desire, recurring friction
 
 The factory starts from the life loop, not from an implementation request. It asks what is broken, worth recording, worth improving, or worth reflecting on, then produces an Agent Blueprint that can later become a prompt, skill, workflow, app, or automation.
 
+Do not use this skill as a normal skill builder when the user already has a clear implementation spec and only needs code, scaffolding, or packaging.
+
 ## Core Flow
 
 1. Normalize the intake: preserve the user's language while clarifying the desired life area.
@@ -21,11 +23,12 @@ The factory starts from the life loop, not from an implementation request. It as
 
 Default output is an `agent_blueprint.yaml` populated with:
 
-- life area and target loop
+- life goal, life area, and core loop
 - user desire in original language
-- agent purpose and non-goals
+- broken points and why the loop should become an agent
+- positioning, why-agentize rationale, and non-goals
 - memory contract
-- roles
+- restrained sub-agent or role boundaries
 - rituals
 - commands
 - review criteria
@@ -33,8 +36,9 @@ Default output is an `agent_blueprint.yaml` populated with:
 ## Operating Principles
 
 - Begin with lived recurrence, not feature lists.
+- Do not create code, prompts, workflows, apps, automations, or sub-agents until the Agent Blueprint defines the life goal, loop, broken points, memory contract, ritual, MVP scope, and success metrics.
 - Prefer one useful ritual over a broad assistant persona.
 - Treat memory as a contract, not a data dump.
 - Keep the agent small enough to trust and repeat.
 - Preserve the user's voice; do not over-professionalize intimate life language.
-
+- Avoid over-agentification: do not turn a small broken loop into an always-on life operating system.

@@ -9,6 +9,13 @@ Score each category from 0 to 3.
 2: A concrete loop is named with trigger and output.
 3: The loop is concrete, repeatable, and clearly valuable.
 
+## Broken Point Clarity
+
+0: Broken points are missing.
+1: Problems are generic frustrations without connection to the loop.
+2: Broken points identify where the loop fails or loses value.
+3: Broken points are concrete, emotionally accurate, and useful for designing the ritual, memory, and MVP.
+
 ## Domain Fit
 
 0: Domain diagnosis is missing.
@@ -37,6 +44,20 @@ Score each category from 0 to 3.
 2: Roles have responsibilities and limits.
 3: Roles are specific, bounded, and tied to rituals or commands.
 
+## Role Decomposition Restraint
+
+0: Output creates many agents, personas, or capabilities before proving the core loop.
+1: Output adds extra roles that are plausible but not necessary for the MVP.
+2: Roles are limited, but one or two may still be premature.
+3: Roles are only added when they clarify a real responsibility in the loop.
+
+## Command Specificity
+
+0: Commands are missing or are generic prompts.
+1: Commands have names but unclear purpose, input, or output.
+2: Commands define purpose, input, output, and memory write behavior.
+3: Commands are specific, bounded, tied to rituals, and safe to repeat.
+
 ## User Voice Preservation
 
 0: User language is erased.
@@ -46,12 +67,20 @@ Score each category from 0 to 3.
 
 ## MVP Focus
 
-0: Blueprint is overbuilt.
+0: Blueprint is overbuilt, implementation-first, or turns the loop into a broad always-on assistant.
 1: MVP includes several unrelated loops.
 2: MVP has one main loop with a few extras.
 3: MVP has one loop, one core ritual, and only necessary commands.
+
+## Risk and Limitation Awareness
+
+0: Risks and limits are missing.
+1: Risks are generic or do not constrain the design.
+2: Risks identify overreach, privacy, memory, or emotional dependency concerns.
+3: Risks create clear boundaries for what the agent should not do.
 
 ## Readiness Judgment
 
 Ready means the blueprint can be implemented or tested as a prompt-only agent without rediscovering the life design.
 
+A blueprint is not ready if it lacks a concrete loop, broken points, bounded memory rules, a repeatable ritual, MVP scope, command outputs, risk limits, or success metrics.
