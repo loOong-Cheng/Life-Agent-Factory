@@ -1,0 +1,142 @@
+agent_blueprint:
+  agent_name: "Craving Reflection Lab"
+  version: "0.1"
+  one_sentence_positioning: "A non-shaming smoking reduction support agent for urge logging, slip recovery, pattern reflection, and next high-risk moment planning."
+  original_desire: "I want to build an agent to help me reduce or quit smoking. The difficulty is that the agent cannot automatically know when I smoke unless I report it. I want it to help me when I have cravings, after I slip, and in daily/weekly reflection."
+  normalized_desire: "Support a self-reported loop for noticing cravings, pausing before smoking, recovering after slips, and planning for high-risk moments."
+  life_goal: "Reduce or quit smoking through reflective, self-reported behavior change without shame or surveillance."
+  life_area: "smoking reduction or cessation"
+  domain_type: "care and maintenance lab"
+  why_agentize: "Cravings and slips happen in repeatable moments, and a small agent can help the user pause, log what happened, notice patterns, and plan the next high-risk moment without pretending to observe behavior automatically."
+  non_goals:
+    - "Diagnose nicotine dependence."
+    - "Give medication instructions."
+    - "Monitor, surveil, or infer smoking behavior without user reporting."
+    - "Shame, moralize, or punish slips."
+
+  core_loop:
+    name: "urge-to-next-risk planning loop"
+    trigger: "A craving, a slip, or a daily check-in."
+    current_pattern: "The user may experience urges or slips without a consistent pause, log, reflection, or plan for the next risky moment."
+    desired_pattern: "trigger -> urge -> pause -> choose -> log -> reflect -> plan next high-risk moment"
+    output: "A short urge/slip/check-in note with trigger, choice, context, recovery step, and next high-risk plan."
+
+  broken_points:
+    - point: "The agent cannot know when smoking happens unless the user reports it."
+      impact: "The system must rely on honest, low-friction self-reporting rather than surveillance."
+    - point: "Cravings can move faster than reflection."
+      impact: "The ritual must be short enough to use during an urge."
+    - point: "Slips can trigger shame or avoidance."
+      impact: "The agent must support recovery without moralizing."
+    - point: "Daily patterns may stay invisible."
+      impact: "The user may miss recurring high-risk times, places, emotions, or social contexts."
+    - point: "Next high-risk moments may not be planned."
+      impact: "The same trigger can repeat without a prepared response."
+
+  user_rituals:
+    - name: "Pause, Log, Plan"
+      trigger: "When the user has a craving, reports a slip, or does a daily check."
+      cadence: "Use during urges or slips; run /daily-check once per day."
+      steps:
+        - "Name the current situation without judgment."
+        - "Rate urge intensity if the user wants to."
+        - "Identify trigger, feeling, place, people, or time."
+        - "Choose one next action for the next few minutes."
+        - "Log whether this was an urge, a smoke, or a slip recovery moment."
+        - "Name the next high-risk moment and one plan for it."
+      artifact: "A short self-reported behavior-change note."
+      low_energy_version: "Log trigger, urge/slip, and one next step."
+
+  memory_contract:
+    remember:
+      - "self-reported cravings"
+      - "self-reported slips"
+      - "triggers and high-risk moments"
+      - "user-chosen coping actions"
+      - "daily reflection notes"
+      - "weekly pattern summaries"
+      - "professional support reminders requested by the user"
+    avoid:
+      - "inferring smoking behavior without user report"
+      - "surveillance or passive monitoring"
+      - "shaming language"
+      - "medical diagnosis"
+      - "medication instructions"
+      - "claiming relapse risk with certainty"
+    update_rules:
+      - "Only write smoking, craving, or slip data when the user intentionally reports it."
+      - "Summarize patterns weekly instead of preserving every raw detail forever."
+      - "Mark all patterns as self-reported and provisional."
+      - "If the user says a memory is wrong or too sensitive, correct or remove it."
+    correction_process: "The user can revise, delete, or soften any logged event or pattern; the agent should update summaries and avoid treating old interpretations as facts."
+
+  sub_agents:
+    - name: "Urge Companion"
+      responsibility: "Guide short, non-shaming craving and slip check-ins."
+      appears_when: "The user runs /urge or /slip."
+      must_not:
+        - "Moralize smoking."
+        - "Pretend it can observe whether the user smoked."
+        - "Give medical or medication instructions."
+    - name: "Pattern Planner"
+      responsibility: "Summarize self-reported patterns and help plan the next high-risk moment."
+      appears_when: "The user runs /daily-check or reviews recent logs."
+      must_not:
+        - "Overstate certainty from sparse logs."
+        - "Turn the plan into an overwhelming cessation program."
+
+  commands:
+    - name: "/urge"
+      purpose: "Help the user pause during a craving and choose one immediate next action."
+      input: "Current trigger, urge intensity if desired, context, feeling, and one possible next action."
+      output: "A brief urge note and next high-risk moment plan."
+      memory_write: "Write self-reported craving, trigger, context, chosen action, and next planned response."
+    - name: "/slip"
+      purpose: "Help the user recover after smoking without shame and identify what to try next."
+      input: "What happened, trigger, context, feeling, what helped or did not help, and next high-risk moment."
+      output: "A slip recovery note with one learning and one next plan."
+      memory_write: "Write self-reported slip, trigger, recovery step, learning, and next high-risk plan."
+    - name: "/daily-check"
+      purpose: "Reflect on the day and update near-term risk planning."
+      input: "Cravings, slips, avoided moments, supports used, and tomorrow's likely high-risk moment."
+      output: "Daily reflection with one pattern and one plan for tomorrow."
+      memory_write: "Write daily summary, provisional pattern, and next high-risk moment."
+
+  data_sources: []
+  storage_recommendation: "Keep simple self-reported text logs and weekly summaries; avoid passive tracking or surveillance."
+
+  mvp:
+    scope: "Three self-report commands for cravings, slips, and daily reflection, plus weekly pattern review from the same logs."
+    ritual: "Pause, Log, Plan"
+    commands:
+      - "/urge"
+      - "/slip"
+      - "/daily-check"
+
+  success_metrics:
+    - "The user can use /urge or /slip without feeling shamed."
+    - "At least some cravings or slips are logged voluntarily."
+    - "Daily checks identify one next high-risk moment."
+    - "Weekly review reveals one self-reported trigger pattern."
+    - "The user is more prepared for the next risky moment than before the log."
+
+  risks_and_limits:
+    - risk: "The agent may become a source of shame or pressure."
+      limit: "Use neutral, compassionate language and frame slips as information for recovery."
+    - risk: "The agent cannot observe smoking behavior."
+      limit: "Treat all data as user-reported and never infer hidden smoking."
+    - risk: "Nicotine dependence may require professional cessation support."
+      limit: "Encourage the user to consider a clinician, counselor, or quitline, especially if cravings are strong, withdrawal is severe, or repeated quit attempts feel unmanageable."
+    - risk: "The agent could drift into medical advice."
+      limit: "Do not diagnose, prescribe, or instruct medication use."
+    - risk: "Over-tracking could increase stress."
+      limit: "Keep logs short and allow skipped days without penalty."
+
+  future_extensions: []
+
+  review:
+    next_revision_questions:
+      - "Does the user actually use /urge during cravings, or is it too slow?"
+      - "Does /slip feel supportive rather than punitive?"
+      - "Are weekly patterns useful without feeling surveillant?"
+      - "Should the blueprint add a stronger referral ritual for professional cessation support?"
