@@ -4,7 +4,7 @@ Score each category from 0 to 3.
 
 ## Life Loop Specificity
 
-0: No recurring loop is identified.
+0: No recurring loop is identified, or output starts from features or implementation instead of lived recurrence.
 1: A broad area is named, but the loop is vague.
 2: A concrete loop is named with trigger and output.
 3: The loop is concrete, repeatable, and clearly valuable.
@@ -28,7 +28,7 @@ Score each category from 0 to 3.
 0: Memory is unbounded or unspecified.
 1: Memory types are listed without rules.
 2: Capture, summary, and retention are defined.
-3: Memory is minimal, consensual, correctable, and useful for the next loop.
+3: Memory is minimal, consensual, correctable, avoids surveillance by default, and is useful for the next loop.
 
 ## Ritual Repeatability
 
@@ -79,8 +79,15 @@ Score each category from 0 to 3.
 2: Risks identify overreach, privacy, memory, or emotional dependency concerns.
 3: Risks create clear boundaries for what the agent should not do.
 
+## High-Sensitivity Domain Handling
+
+0: Sensitive domains are treated like ordinary productivity problems, or the output shames, moralizes, surveils, diagnoses, prescribes, or claims certainty about relationships, values, health, or other people's intentions.
+1: Sensitivity is acknowledged, but safety boundaries are vague or not reflected in memory, ritual, roles, and risks.
+2: The design includes relevant privacy, consent, uncertainty, medical, emotional safety, or professional-support boundaries.
+3: The design is non-shaming, consent-based, avoids medical overreach and surveillance by default, avoids over-inference, and makes uncertainty boundaries explicit throughout the blueprint.
+
 ## Readiness Judgment
 
 Ready means the blueprint can be implemented or tested as a prompt-only agent without rediscovering the life design.
 
-A blueprint is not ready if it lacks a concrete loop, broken points, bounded memory rules, a repeatable ritual, MVP scope, command outputs, risk limits, or success metrics.
+A blueprint is not ready if it lacks a concrete loop, broken points, bounded memory rules, a repeatable ritual, MVP scope, command outputs, risk limits, success metrics, or high-sensitivity boundaries where relevant.

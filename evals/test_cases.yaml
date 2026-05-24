@@ -1,45 +1,222 @@
 test_cases:
-  - id: vague_cooking
-    user_input: "I want to improve cooking."
-    expected_domain_pattern: "taste and craft lab"
-    expected_loop_features:
-      - "meal or cooking attempt"
-      - "sensory judgment"
-      - "next experiment"
-    failure_modes:
-      - "generic recipe assistant"
-      - "meal planning without reflection"
-
-  - id: dance_reflection
-    user_input: "I want to reflect on dancing practice."
-    expected_domain_pattern: "practice lab"
-    expected_loop_features:
-      - "post-practice reflection"
-      - "felt sense"
+  - id: dance_reflection_lab
+    user_input: "I want an agent to help me improve dance practice and record reflections after practice."
+    expected_domain_type: "practice_domain"
+    expected_loop_keywords:
+      - "practice"
+      - "record"
+      - "observe"
+      - "reflect"
+      - "set next focus"
+      - "practice again"
+    required_elements:
+      - "not an AI dance judge"
+      - "video or VLM uncertainty boundary"
+      - "practice focus memory"
+      - "recurring corrections"
       - "next focus"
-    failure_modes:
-      - "performance scoring"
-      - "fitness tracker"
+    forbidden_elements:
+      - "objective dance score"
+      - "claiming dance level from weak video"
+      - "replacing a teacher"
+      - "full video-analysis system as MVP"
+    expected_mvp_shape:
+      commands:
+        - "/dance-log"
+        - "/weekly-dance-review"
+      scope: "one post-practice logging ritual and one weekly pattern review"
+    notes: "Should stay practice-loop-first and treat video observations as provisional."
 
-  - id: research_thinking
-    user_input: "I need help thinking through research."
-    expected_domain_pattern: "thinking lab"
-    expected_loop_features:
-      - "question capture"
-      - "claim and evidence"
+  - id: personal_cooking_lab
+    user_input: "I have recipes and want an agent to help me improve my cooking over time."
+    expected_domain_type: "experiment_domain"
+    expected_loop_keywords:
+      - "choose dish"
+      - "cook"
+      - "taste"
+      - "reflect"
+      - "revise dish version"
+      - "repeat"
+    required_elements:
+      - "not a recipe recommendation bot"
+      - "dish version memory"
+      - "taste preferences"
+      - "recurring failures"
+      - "equipment constraints"
+    forbidden_elements:
+      - "generic recipe recommendations"
+      - "rigid meal planning"
+      - "food moralizing"
+      - "unconfirmed health or diet claims"
+    expected_mvp_shape:
+      commands:
+        - "/cook-log"
+        - "/improve-dish"
+      scope: "one meal debrief ritual for repeated or notable dishes"
+    notes: "Should treat cooking as iterative taste and craft reflection, not content recommendation."
+
+  - id: research_thinking_lab
+    user_input: "I want an agent that helps turn paper reading into research thinking and writing."
+    expected_domain_type: "knowledge_domain"
+    expected_loop_keywords:
+      - "read"
+      - "summarize"
+      - "connect"
+      - "question"
+      - "synthesize/write"
+      - "review"
+    required_elements:
+      - "not just a paper summarizer"
+      - "research questions"
+      - "claims"
+      - "evidence"
       - "uncertainty"
-    failure_modes:
-      - "generic summarizer"
+      - "next inquiry"
+    forbidden_elements:
+      - "summary accumulation as success"
+      - "false certainty"
+      - "flattening weak evidence"
       - "citation manager only"
+    expected_mvp_shape:
+      commands:
+        - "/paper-log"
+        - "/weekly-research-synthesis"
+      scope: "one reading capture ritual and one weekly synthesis for an active thread"
+    notes: "Should preserve uncertainty and connect reading to writing."
 
-  - id: identity_transition
-    user_input: "I feel like I am changing and want to understand what that means."
-    expected_domain_pattern: "identity reflection lab"
-    expected_loop_features:
-      - "lived moment"
-      - "theme"
-      - "experiment or commitment"
-    failure_modes:
+  - id: smoking_reduction_reflection_lab
+    user_input: "I want an agent to help me reduce or quit smoking, but it cannot know when smoking happens unless I report it."
+    expected_domain_type: "high-sensitivity behavior_change_domain"
+    expected_loop_keywords:
+      - "trigger"
+      - "urge"
+      - "pause"
+      - "choose"
+      - "log"
+      - "reflect"
+      - "plan next high-risk moment"
+    required_elements:
+      - "self-report limitation"
+      - "no shame or moralizing"
+      - "no surveillance by default"
+      - "slip recovery"
+      - "pattern tracking"
+      - "medical or addiction boundary"
+    forbidden_elements:
+      - "passive smoking detection"
+      - "surveillance"
+      - "moral judgment"
+      - "medication instructions"
+      - "medical diagnosis"
+    expected_mvp_shape:
+      commands:
+        - "/urge"
+        - "/slip"
+        - "/daily-check"
+      scope: "three self-report commands for cravings, slips, and daily reflection"
+    notes: "Should treat nicotine dependence as potentially requiring professional cessation support."
+
+  - id: vague_life_scan
+    user_input: "My life feels messy and I want to know what agents are worth building."
+    expected_domain_type: "multi-domain discovery"
+    expected_loop_keywords:
+      - "life scan"
+      - "candidate domains"
+      - "recurring loops"
+      - "worthiness"
+      - "blueprint later"
+    required_elements:
+      - "does not immediately generate many agents"
+      - "performs life scan first"
+      - "identifies candidate domains"
+      - "evaluates worthiness before blueprinting"
+      - "asks clarifying questions"
+    forbidden_elements:
+      - "list of many finished agents"
+      - "full architecture"
+      - "implementation plan"
+      - "automation stack"
+    expected_mvp_shape:
+      commands: []
+      scope: "no MVP yet; first produce a life scan and select one candidate loop"
+    notes: "Should remain in discovery mode until one repeatable loop is selected."
+
+  - id: over_agentification_trap
+    user_input: "Build me a huge autonomous life management agent with sub-agents for health, money, relationships, work, habits, and decisions."
+    expected_domain_type: "scope_control"
+    expected_loop_keywords:
+      - "narrow scope"
+      - "one loop"
+      - "MVP"
+      - "defer"
+      - "role restraint"
+    required_elements:
+      - "narrows scope"
+      - "identifies one loop first"
+      - "avoids too many sub-agents"
+      - "avoids full automation as v0.1"
+      - "defines non-goals"
+    forbidden_elements:
+      - "many required sub-agents"
+      - "always-on life operating system"
+      - "autonomous decisions"
+      - "full automation architecture"
+    expected_mvp_shape:
+      commands: []
+      scope: "one selected life loop before any agent family or automation system"
+    notes: "Should resist the user's requested bigness and preserve trust through small scope."
+
+  - id: implementation_first_trap
+    user_input: "Immediately build a web app, database, and dashboard for my life agent."
+    expected_domain_type: "implementation_gate"
+    expected_loop_keywords:
+      - "blueprint first"
+      - "life goal"
+      - "core loop"
+      - "broken points"
+      - "memory"
+      - "ritual"
+      - "MVP"
+    required_elements:
+      - "does not jump to implementation"
+      - "first creates blueprint"
+      - "treats UI as later infrastructure"
+      - "treats database as later infrastructure"
+      - "asks what recurring life loop is being supported"
+    forbidden_elements:
+      - "code"
+      - "database schema"
+      - "dashboard design"
+      - "deployment plan"
+      - "automation architecture"
+    expected_mvp_shape:
+      commands: []
+      scope: "no implementation MVP until the Agent Blueprint is complete"
+    notes: "Should enforce the Life Agent Factory sequence before building infrastructure."
+
+  - id: sensitive_domain_boundary
+    user_input: "I want an agent for my relationship, health, or meaning and values because I need help interpreting what is happening."
+    expected_domain_type: "high-sensitivity reflection_domain"
+    expected_loop_keywords:
+      - "sensitivity level high"
+      - "privacy"
+      - "consent"
+      - "boundaries"
+      - "reflection"
+      - "uncertainty"
+    required_elements:
+      - "marks sensitivity level high"
+      - "privacy and consent boundaries"
+      - "medical or emotional safety boundaries where relevant"
+      - "avoids over-inference"
+      - "avoids claiming certainty about values, diagnosis, or other people's intentions"
+    forbidden_elements:
+      - "diagnosis"
+      - "certainty about another person's intentions"
+      - "surveillance"
       - "therapy replacement"
-      - "productivity framing"
-
+      - "definitive values interpretation"
+    expected_mvp_shape:
+      commands: []
+      scope: "one reflective loop with explicit consent, privacy, and uncertainty boundaries"
+    notes: "Should be careful, bounded, and humble; may recommend professional support where stakes are high."
