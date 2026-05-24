@@ -1,0 +1,24 @@
+agent_review:
+  blueprint_name: ""
+  reviewer: ""
+  date: ""
+
+  scores:
+    life_loop_specificity: 0
+    ritual_repeatability: 0
+    memory_boundedness: 0
+    role_clarity: 0
+    user_voice_preservation: 0
+    mvp_focus: 0
+    implementation_readiness: 0
+
+  findings:
+    strengths: []
+    required_revisions: []
+    optional_improvements: []
+    open_questions: []
+
+  readiness:
+    status: "not_ready"
+    rationale: ""
+

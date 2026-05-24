@@ -1,0 +1,28 @@
+ritual:
+  name: ""
+  loop_name: ""
+  trigger: ""
+  cadence: ""
+  expected_duration: ""
+
+  opening:
+    prompt: ""
+    tone: ""
+
+  steps:
+    - order: 1
+      action: ""
+      question: ""
+      optional: false
+
+  closing_artifact:
+    type: ""
+    fields: []
+
+  low_energy_version:
+    duration: ""
+    minimum_questions: []
+    acceptable_output: ""
+
+  success_signal: ""
+

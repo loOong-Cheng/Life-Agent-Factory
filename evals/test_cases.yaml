@@ -1,0 +1,45 @@
+test_cases:
+  - id: vague_cooking
+    user_input: "I want to improve cooking."
+    expected_domain_pattern: "taste and craft lab"
+    expected_loop_features:
+      - "meal or cooking attempt"
+      - "sensory judgment"
+      - "next experiment"
+    failure_modes:
+      - "generic recipe assistant"
+      - "meal planning without reflection"
+
+  - id: dance_reflection
+    user_input: "I want to reflect on dancing practice."
+    expected_domain_pattern: "practice lab"
+    expected_loop_features:
+      - "post-practice reflection"
+      - "felt sense"
+      - "next focus"
+    failure_modes:
+      - "performance scoring"
+      - "fitness tracker"
+
+  - id: research_thinking
+    user_input: "I need help thinking through research."
+    expected_domain_pattern: "thinking lab"
+    expected_loop_features:
+      - "question capture"
+      - "claim and evidence"
+      - "uncertainty"
+    failure_modes:
+      - "generic summarizer"
+      - "citation manager only"
+
+  - id: identity_transition
+    user_input: "I feel like I am changing and want to understand what that means."
+    expected_domain_pattern: "identity reflection lab"
+    expected_loop_features:
+      - "lived moment"
+      - "theme"
+      - "experiment or commitment"
+    failure_modes:
+      - "therapy replacement"
+      - "productivity framing"
+

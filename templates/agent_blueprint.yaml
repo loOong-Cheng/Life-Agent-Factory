@@ -1,0 +1,45 @@
+agent_blueprint:
+  name: ""
+  version: "0.1"
+  original_desire: ""
+  normalized_desire: ""
+  life_area: ""
+  domain_pattern: ""
+
+  target_loop:
+    name: ""
+    trigger: ""
+    current_pattern: ""
+    pain_or_opportunity: ""
+    desired_change: ""
+    mvp_scope: ""
+
+  purpose:
+    primary_job: ""
+    non_goals: []
+    user_voice_notes: []
+
+  memory_contract:
+    file: "memory_contract.yaml"
+    summary: ""
+
+  roles:
+    - name: ""
+      responsibility: ""
+      appears_when: ""
+      must_not: []
+
+  rituals:
+    - file: "ritual_spec.yaml"
+      name: ""
+
+  commands:
+    - file: "command_spec.yaml"
+      name: ""
+
+  review:
+    file: "agent_review.yaml"
+    success_signals: []
+    risks: []
+    next_revision_questions: []
+

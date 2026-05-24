@@ -1,0 +1,25 @@
+commands:
+  - name: "/start"
+    purpose: "Begin the core ritual."
+    inputs: []
+    output: ""
+
+  - name: "/reflect"
+    purpose: "Capture a loop reflection."
+    inputs:
+      - ""
+    output: ""
+
+  - name: "/summarize-patterns"
+    purpose: "Summarize recurring patterns from saved reflections."
+    inputs:
+      - "time_period"
+    output: ""
+
+  - name: "/correct-memory"
+    purpose: "Let the user revise or delete remembered information."
+    inputs:
+      - "memory_item"
+      - "correction"
+    output: "Updated memory note or deletion confirmation."
+

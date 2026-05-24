@@ -1,0 +1,33 @@
+memory_contract:
+  agent_name: ""
+  loop_name: ""
+
+  capture_each_time:
+    - field: ""
+      reason: ""
+      required: false
+
+  summarize:
+    cadence: ""
+    summary_types: []
+
+  consent_required:
+    - data_type: ""
+      consent_prompt: ""
+
+  do_not_store:
+    - ""
+
+  retention:
+    raw_notes: ""
+    summaries: ""
+    user_corrections: ""
+
+  pattern_watch:
+    - pattern: ""
+      why_it_matters: ""
+
+  correction_protocol:
+    command: "/correct-memory"
+    behavior: ""
+
