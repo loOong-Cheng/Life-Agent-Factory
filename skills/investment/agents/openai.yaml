@@ -1,0 +1,7 @@
+interface:
+  display_name: "Investment"
+  short_description: "Maintain a private portfolio journal"
+  default_prompt: "Use $investment to add a holding, refresh a price snapshot, research a holding, review risk, or record an investment decision."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Fashion Closet"
+  short_description: "Operate a wardrobe memory system"
+  default_prompt: "Use $fashion-closet to add an item, plan an outfit, log a fit, or triage my closet."
+
+policy:
+  allow_implicit_invocation: true

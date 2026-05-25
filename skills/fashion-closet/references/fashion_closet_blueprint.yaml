@@ -1,0 +1,157 @@
+agent_blueprint:
+  agent_name: "Fashion Closet"
+  version: "0.1"
+  one_sentence_positioning: "A personal closet reflection system for knowing owned clothes, dressing with intention, preserving clothing memory, and triaging what stays active."
+  original_desire: "Create a reusable skill for operating an existing fashion closet project smoothly."
+  normalized_desire: "Package a Markdown Fashion Closet system as a repeatable AI skill for item intake, outfit planning, outfit logging, and closet triage."
+  life_goal: "Know the closet, dress with intention, and cherish what is already owned while learning from real wear."
+  life_area: "personal fashion closet"
+  domain_type: "experiment_domain + meaning_values_reflection_domain"
+  why_agentize: "Closet value comes from repeated loops: adding items, wearing them, noticing what works, remembering stories, and adjusting future outfits. An agent can carry those observations forward without becoming a generic shopping bot."
+  non_goals:
+    - "Become a generic fashion recommendation bot."
+    - "Push purchases before understanding owned items."
+    - "Replace the user's taste or identity judgment."
+    - "Build a web app, database, dashboard, or automation system by default."
+
+  core_loop:
+    name: "wear-log-learn closet loop"
+    trigger: "A new item, planned outfit, worn outfit, or seasonal triage moment."
+    current_pattern: "Item facts, outfit theories, emotional stories, and triage decisions can drift apart unless they are logged and reviewed."
+    desired_pattern: "own -> wear -> observe -> log -> reflect -> adjust -> wear again"
+    output: "An item note, outfit plan, outfit log, or triage decision that improves the next closet choice."
+
+  broken_points:
+    - point: "Item data and outfit lessons can become disconnected."
+      impact: "The same fit, color, or pairing lesson has to be rediscovered."
+    - point: "Clothing memory can be lost."
+      impact: "Heritage, validation moments, place context, and identity signals fade into plain inventory."
+    - point: "Sleeping pieces can stay unresolved."
+      impact: "The user may avoid wearing or releasing items because there is no next experiment."
+    - point: "Generic styling can ignore body geometry and existing modes."
+      impact: "Recommendations may look plausible but fail the user's actual closet, proportions, and lifestyle."
+
+  user_rituals:
+    - name: "Wear, Log, Learn"
+      trigger: "After wearing an outfit, adding a meaningful item, or reviewing a sleeping piece."
+      cadence: "Use whenever a meaningful item or outfit creates a learning; review patterns seasonally."
+      steps:
+        - "Name the context: item, outfit, occasion, weather, and mode."
+        - "Record what was worn or considered."
+        - "Observe silhouette, color, comfort, and emotional fit."
+        - "Capture story, validation, or hesitation if present."
+        - "Choose one next wear, pairing, status, or triage action."
+      artifact: "A closet note, outfit log, or triage entry."
+      low_energy_version: "Record the item or outfit plus one thing that worked and one next action."
+
+  memory_contract:
+    remember:
+      - "item attributes and IDs"
+      - "style mode mappings"
+      - "body, color, and fit observations"
+      - "outfit outcomes"
+      - "heritage, place, and validation stories"
+      - "triage status and next experiments"
+    avoid:
+      - "body shaming"
+      - "generic shopping pressure"
+      - "invented fabric or brand certainty"
+      - "overwriting user taste"
+      - "discarding emotional meaning as irrational"
+    update_rules:
+      - "Write new closet memory only from explicit user input, existing notes, or visible evidence."
+      - "Mark uncertain fabric, model, or visual analysis as provisional."
+      - "Update item or outfit conclusions when real wear contradicts prior theory."
+      - "Prefer summaries and reusable rules over exhaustive commentary."
+    correction_process: "If the user corrects an item fact, mode, story, or outfit judgment, update the current working conclusion and stop relying on the old interpretation."
+
+  sub_agents:
+    - name: "Intake Agent"
+      responsibility: "Turn item photos, labels, context, and user corrections into structured closet notes."
+      appears_when: "Adding or revising closet items."
+      must_not:
+        - "Invent missing item facts."
+        - "Reuse retired IDs."
+    - name: "Reflection Agent"
+      responsibility: "Log worn outfits, validation moments, comfort, silhouette lessons, and next experiments."
+      appears_when: "Logging outfits or reviewing real wear."
+      must_not:
+        - "Turn every outfit into exhaustive tracking."
+        - "Erase emotional meaning in favor of efficiency."
+    - name: "Recommendation Agent"
+      responsibility: "Plan outfits from owned items using body context, style modes, weather, occasion, and constraints."
+      appears_when: "The user asks what to wear or how to style an item."
+      must_not:
+        - "Give generic outfit advice detached from the closet."
+        - "Push purchases before checking owned items."
+    - name: "Triage Agent"
+      responsibility: "Review active, sleeping, undecided, and retired items and propose one next action."
+      appears_when: "The user reviews closet status, seasonal rotation, or underused pieces."
+      must_not:
+        - "Treat emotionally meaningful items as clutter by default."
+        - "Pressure the user to discard items."
+
+  commands:
+    - name: "/closet-add"
+      purpose: "Draft or create a structured note for a meaningful closet item."
+      input: "Images or description, brand, size, fabric label if available, story, and intended role."
+      output: "An item note following the Fashion Closet template."
+      memory_write: "Write item attributes, story, mode, status, pairings, and uncertainty flags."
+    - name: "/outfit-plan"
+      purpose: "Recommend an outfit from owned items for a context."
+      input: "Occasion, weather, mood or mode, constraints, and optional must-wear item."
+      output: "An outfit plan with pieces, rationale, alternatives, and caveats."
+      memory_write: "Write reusable outfit theories only after user confirmation or wear feedback."
+    - name: "/outfit-log"
+      purpose: "Capture what was worn and what the outfit proved."
+      input: "Date, weather, outfit pieces, context, photo if any, verdict, and lessons."
+      output: "An outfit log with tested theory, result, and next reuse idea."
+      memory_write: "Write outfit outcome, silhouette/color lesson, validation moment, and next action."
+
+  data_sources:
+    - "FashionCloset.md"
+    - "Fashion Closet.md"
+    - "About Me.md"
+    - "Beliefs.md"
+    - "Triage.md"
+    - "_Item Template.md"
+    - "Closet Inventory/_index.md"
+    - "Closet Inventory/*.md"
+    - "Outfits/*.md"
+    - "assets/*"
+  storage_recommendation: "Use the existing Markdown closet folder and notes; do not introduce a new database unless explicitly requested."
+
+  mvp:
+    scope: "Operate the current closet through three commands: item intake, outfit planning, and outfit logging."
+    ritual: "Wear, Log, Learn"
+    commands:
+      - "/closet-add"
+      - "/outfit-plan"
+      - "/outfit-log"
+
+  success_metrics:
+    - "New item notes match the existing frontmatter and story structure."
+    - "Outfit advice references owned items, body context, style modes, weather, and occasion."
+    - "Outfit logs produce at least one reusable lesson or next-wear idea."
+    - "Triage suggestions preserve emotional meaning while moving one item toward action."
+
+  risks_and_limits:
+    - risk: "The agent could become a generic shopping or styling bot."
+      limit: "Start from owned items, modes, and real wear before suggesting purchases."
+    - risk: "Visual or fabric analysis may be uncertain."
+      limit: "Mark uncertain image, label, brand, fabric, or fit claims as provisional."
+    - risk: "Closet work could become over-administered."
+      limit: "Prefer one useful note or outfit lesson over exhaustive metadata."
+    - risk: "Triage could erase heritage or identity meaning."
+      limit: "Separate practical underuse from emotional value before recommending release."
+
+  future_extensions:
+    - "Seasonal triage workflow"
+    - "Packing capsule workflow"
+    - "Purchase gap analysis"
+
+  review:
+    next_revision_questions:
+      - "Which command does the user actually reach for first: item intake, outfit planning, or outfit logging?"
+      - "Does the skill preserve the user's style modes and heritage meaning without becoming too heavy?"
+      - "Are file edits to the live closet folder smooth enough, or should a draft-first workflow be default?"
