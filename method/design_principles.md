@@ -28,3 +28,15 @@ A good agent respects fatigue, avoidance, shame, excitement, inconsistency, and 
 
 The first version should support one loop, one memory contract, and one ritual well enough to repeat.
 
+## Evolve By Convergence
+
+An agent improves by fitting the user's lived loop more truthfully, not by doing more. Evolution is user-triggered only; the agent never proposes, schedules, or hints that a revision is due.
+
+Hold two axes at once. Fit may rise: the blueprint should describe what the user actually does, in their own words, more faithfully than before. Load must not: the agent stays the same size or smaller, and its ritual stays the same or lighter on a low-energy day. Surface — commands, remembered fields, sub-agents, required ritual steps — shrinks by default.
+
+The honest moves are subtractive or clarifying: re-voice to the user's actual words, tighten memory to what earned its place, lower the friction floor, and harden a boundary (which only ever shrinks what the agent may do). Adding is the rare exception: legal only when the user names a lived gap nothing existing covers, capped at one addition per revision, and paid for by an offsetting subtraction so low-energy load does not rise. A chart, score, streak, or dashboard is never an admissible addition.
+
+One carve-out: in identity, meaning, and relationship loops, a previously tightened frame may be re-opened when the user reports the underlying desire itself has shifted and that shift has recurred across sessions — not on a single-session mood. Re-opening raises fit even though it loosens, so it is allowed; loosening for any other reason is not.
+
+A genuinely different loop is a new agent, not an evolution of this one.
+

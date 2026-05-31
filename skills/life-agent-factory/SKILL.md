@@ -19,6 +19,18 @@ Do not use this skill as a normal skill builder when the user already has a clea
 9. Write the blueprint: produce a concrete Agent Blueprint using the template.
 10. Review and revise: test whether the agent is humane, useful, bounded, and easy to repeat.
 
+## Evolving An Existing Agent (User-Triggered)
+
+An agent is never finished by its first blueprint, but it also does not improve on its own. Evolution is user-triggered only: the agent never proposes a revision, schedules a check-in, or hints that one is due — not even after repeated corrections. If the user never asks, the blueprint stays at its current version forever.
+
+When the user does ask, run the evolve flow (`prompts/11_evolution.md`): re-run the review stage against the existing blueprint plus the lived evidence the user brings back, and converge the blueprint by one minor version step (vX.X -> vX.X+0.1).
+
+Evolution needs lived evidence. Until the agent has been used at least once, there is nothing to converge toward — refining the blueprint before first use is still *building*, not evolving, and the version stays put.
+
+The direction is fixed: a revision must fit the user's actual loop more faithfully AND run no heavier on a low-energy day. Surface shrinks by default. The honest moves, in priority order, are: re-voice to the user's words, tighten memory, lower the ritual's friction floor, and harden a boundary. Adding is a rare exception — capped at one per revision, forced by a user-voiced lived gap, and paid for by an offsetting subtraction. A genuinely different loop is a new agent, not a revision of this one.
+
+See `design_principles.md` (Evolve By Convergence) and `anti_patterns.md` (Evolution As Accretion).
+
 ## Output
 
 Default output is an `agent_blueprint.yaml` populated with:
@@ -42,3 +54,4 @@ Default output is an `agent_blueprint.yaml` populated with:
 - Keep the agent small enough to trust and repeat.
 - Preserve the user's voice; do not over-professionalize intimate life language.
 - Avoid over-agentification: do not turn a small broken loop into an always-on life operating system.
+- Evolution means convergence, not accretion: each version fits the lived loop better and is the same size or smaller. The agent never initiates, schedules, or hints at a revision.

@@ -66,4 +66,23 @@ agent_blueprint:
   future_extensions: []
 
   review:
-    next_revision_questions: []
+    next_revision_questions: []   # /evolve answers these, then rewrites them in fit-probing form (never "should we add X")
+
+    # --- user-triggered evolution (vX.X -> vX.X+0.1); the agent NEVER initiates ---
+    # Records METADATA plus a short, user-confirmed PARAPHRASE of the triggering evidence —
+    # never verbatim sensitive content, never the user's own domain entries; strip third-party
+    # detail. Bounded: keep the last 3 full entries; collapse older ones into rolling_summary.
+    evolution_log:
+      rolling_summary: ""          # older entries collapsed to one line each, e.g. "v0.1->0.4: de-frictioned ritual, tightened memory, hardened recall boundary"
+      recent:                      # keep only the last 3 full entries
+        - from_version: ""         # e.g. "0.1"
+          to_version: ""           # e.g. "0.2"  (exactly +0.1)
+          date: ""
+          change_types: []         # subset of [scope_fit, re_voice, tighten_memory, de_friction_ritual, sharpen_boundary, promote_one]
+          parts_touched: []        # blueprint fields changed
+          evidence_paraphrase: ""  # SHORT, user-confirmed; NOT verbatim, NOT sensitive raw content, NOT domain memory
+          principles_invoked: []   # e.g. [Design For Friction, Make Memory Earn Its Place]
+          antipatterns_checked: [] # e.g. [Dashboard Too Early, Memory Hoarder]
+          direction_note: ""       # one line: how fit rose and load stayed flat-or-down (qualitative, NOT a score)
+          paid_for_by: ""          # only if a promotion happened: the offsetting subtraction/tightening
+          user_approved: true      # per-change approval required; no write without it

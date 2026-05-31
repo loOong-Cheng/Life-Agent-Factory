@@ -86,6 +86,15 @@ Score each category from 0 to 3.
 2: The design includes relevant privacy, consent, uncertainty, medical, emotional safety, or professional-support boundaries.
 3: The design is non-shaming, consent-based, avoids medical overreach and surveillance by default, avoids over-inference, and makes uncertainty boundaries explicit throughout the blueprint.
 
+## Evolution Directionality
+
+Applies only when scoring a revision (a vX.X -> vX.X+0.1 step), not a first build. Judged qualitatively, never as a numeric monotonic gate.
+
+0: A revision that net-adds surface, raises low-energy-day load, adds a chart/score/dashboard, loosens a boundary without warrant, prunes on absence-of-use, or is agent-initiated.
+1: Changes are plausible but not tied to user-volunteered lived evidence, or bundle several uncoordinated edits.
+2: Changes are evidence-backed and mostly subtractive, with load roughly flat.
+3: The revision raises fit to the lived loop at equal-or-lower load, prunes or tightens by default, adds only against the paid-for bar (capped at one, offset by a subtraction), preserves voice, keeps the ritual runnable on a bad day, and was approved per-change by the user.
+
 ## Readiness Judgment
 
 Ready means the blueprint can be implemented or tested as a prompt-only agent without rediscovering the life design.

@@ -116,4 +116,4 @@ agent_blueprint:
     next_revision_questions:
       - "After a month of pull-based use, am I actually opening it — or has it gone unused because the trigger is too weak?"
       - "Do the recalled notes feel like my own voice, or has the agent started flattening them?"
-      - "Is 'one next thing to try' still the right ceiling, or do I want more?"
+      - "Is 'one next thing to try' still the right ceiling, or does it feel too thin to capture what I noticed?"
