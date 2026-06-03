@@ -43,3 +43,7 @@ No tools, database, or framework required to produce a blueprint.
 ## Scope
 
 This is a **first-step blueprint skill**, not an implementation framework. Its job is to trigger thinking and build reflection *before* you start building. Databases, dashboards, UIs, and automation can absolutely come later — but only once the loop, broken points, and MVP scope are clear.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
